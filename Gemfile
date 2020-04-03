@@ -37,6 +37,8 @@ gem 'faker'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+gem "refile", github: 'refile/refile', require: "refile/rails"
+gem "refile-mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
