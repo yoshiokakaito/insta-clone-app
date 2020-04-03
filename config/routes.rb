@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   root 'static_pages#home'
   get  '/help' => 'static_pages#help'
   get  '/about' => 'static_pages#about'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
   end
   resources :microposts, only: [:new, :create, :destroy]
-  resources :relationships,       only: [:create, :destroy]
-
+  resources :relationships, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
+  
 end
