@@ -40,20 +40,61 @@
   <div class="row">
         <% @microposts.each do |micropost| %>
           <div class="col-md-4 padding">
-            <% if micropost.image_id.present? %>
-              <%= attachment_image_tag micropost, :image, :fill, 200, 200 %>
-            <% else %>
-              <%= image_tag 'instagram.jpg', width: "200px" %>
-            <% end %>    
-              <div>
-                <span class="timestamp">
-                  Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-                  <% if current_user?(micropost.user) %>
-                    <%= link_to "delete", micropost, method: :delete,
-                                                     data: { confirm: "You sure?" } %>
-                  <% end %>  
-                </span>
-              </div>
+            <!--<ol class="microposts">-->
+            <!--  <li id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>">-->
+                <!--<span class="content">-->
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal-<%= micropost.id %>">
+                    <% if micropost.image_id.present? %>
+                      <%= attachment_image_tag micropost, :image, :fill, 200, 200 %>
+                    <% else %>
+                      <%= image_tag 'instagram.jpg', width: "200px" %>
+                    <% end %> 
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal-<%= micropost.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                            <%= micropost.content %>
+                          </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <% if micropost.image_id.present? %>
+                            <%= attachment_image_tag micropost, :image, :fill, 200, 200 %>
+                          <% else %>
+                            <%= image_tag 'instagram.jpg', width: "200px" %>
+                          <% end %> 
+                          <button_tag></button_tag>
+              　　　　　　      <%= render "likes/like", micropost: micropost %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+   
+                  <div>
+                    <span class="timestamp">
+                      Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+                      <% if current_user?(micropost.user) %>
+                        <%= link_to "delete", micropost, method: :delete,
+                                                         data: { confirm: "You sure?" } %>
+                      <% end %>  
+                    </span>
+                    <button_tag></button_tag>
+                    <%= render "likes/like", micropost: micropost %>
+                  </div>
+                <!--</span>-->
+            <!--  </li>-->
+            <!--</ol>-->
           </div>
         <% end %>  
   </div>
