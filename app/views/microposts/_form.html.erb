@@ -1,7 +1,7 @@
 <%= form_for @micropost do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div id="cober-image"  class="form-group padding-top-15 relative">
-    <%= image_tag 'instagram.jpg', class: 'img-responsive article-list-image' %>
+  <div class="form-group img-responsive">
+    <%= image_tag 'camera.png' %>
   </div>
   
   <%= f.attachment_field :image, accept: 'image/jpg,image/jpeg,image/png,' %>

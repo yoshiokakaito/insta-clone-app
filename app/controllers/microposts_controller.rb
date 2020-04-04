@@ -13,8 +13,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @feed_items = []
-      flash.now[:danger] = '投稿に失敗しました'
-      render 'static_pages/home'
+      render 'new'
     end
   end
 
