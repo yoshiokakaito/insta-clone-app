@@ -37,4 +37,12 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
   
+  def self.search(search)
+    if search
+      where(['user_name LIKE ?', "%#{search}%"]) 
+    else
+      all 
+    end
+  end
+  
 end

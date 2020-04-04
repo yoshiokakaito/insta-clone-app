@@ -6,7 +6,11 @@ before_action :correct_user,   only: [:edit, :update]
 before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = if params[:search]
+     User.paginate(page: params[:page]).where('user_name LIKE ?', "%#{params[:search]}%")
+    else
+     User.paginate(page: params[:page])
+    end
   end
   
   def new
