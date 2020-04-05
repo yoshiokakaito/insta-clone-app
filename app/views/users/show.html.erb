@@ -41,7 +41,7 @@
         <% @microposts.each do |micropost| %>
           <div class="col-md-4 padding">
             <!--<ol class="microposts">-->
-            <!--  <li id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>">-->
+              <div id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>">
                 <!--<span class="content">-->
                   <!-- Button trigger modal -->
                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal-<%= micropost.id %>">
@@ -66,7 +66,7 @@
                         </div>
                         <div class="modal-body">
                           <% if micropost.image_id.present? %>
-                            <%= attachment_image_tag micropost, :image, :fill, 200, 200 %>
+                            <%= attachment_image_tag micropost, :image, :fill, 200, 200, class: "imag-home" %>
                           <% else %>
                             <%= image_tag 'instagram.jpg', width: "200px" %>
                           <% end %> 
@@ -89,11 +89,10 @@
                                                          data: { confirm: "You sure?" } %>
                       <% end %>  
                     </span>
-                    <button_tag></button_tag>
                     <%= render "likes/like", micropost: micropost %>
                   </div>
                 <!--</span>-->
-            <!--  </li>-->
+              </div>
             <!--</ol>-->
           </div>
         <% end %>  
