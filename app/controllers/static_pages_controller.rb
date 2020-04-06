@@ -7,7 +7,7 @@ class StaticPagesController < ApplicationController
        @comment = Comment.new
        @comments = @micropost.comments
      else
-       redirect_to login_url
+
      end
   end
 
