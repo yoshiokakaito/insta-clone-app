@@ -40,9 +40,7 @@
   <div class="row">
         <% @microposts.each do |micropost| %>
           <div class="col-md-4 padding">
-            <!--<ol class="microposts">-->
               <div id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>">
-                <!--<span class="content">-->
                   <!-- Button trigger modal -->
                   <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal-<%= micropost.id %>">
                     <% if micropost.image_id.present? %>
@@ -70,12 +68,12 @@
                           <% else %>
                             <%= image_tag 'instagram.jpg', width: "200px" %>
                           <% end %> 
-                          <button_tag></button_tag>
+            
+                          
               　　　　　　      <%= render "likes/like", micropost: micropost %>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
                         </div>
                       </div>
                     </div>
@@ -91,9 +89,7 @@
                     </span>
                     <%= render "likes/like", micropost: micropost %>
                   </div>
-                <!--</span>-->
               </div>
-            <!--</ol>-->
           </div>
         <% end %>  
   </div>

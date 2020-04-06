@@ -26,13 +26,23 @@
         </button>
       </div>
       <div class="modal-body">
-            <% if micropost.image_id.present? %>
-             <%= attachment_image_tag micropost, :image, :fill, 200, 200 %>
-            <% else %>
-             <%= image_tag 'instagram.jpg', width: "200px" %>
-           <% end %> 
-           <button_tag></button_tag>
-　 　　    <%= render "likes/like", micropost: micropost %>
+              <% if micropost.image_id.present? %>
+               <%= attachment_image_tag micropost, :image, :fill, 200, 200 %>
+              <% else %>
+               <%= image_tag 'instagram.jpg', width: "200px" %>
+             <% end %> 
+              <div>
+                <h4>コメント</h4>
+                <div class="comments_area" id="comments_area">
+                  <%= render partial: 'comments/index', locals: { comments: micropost.comments, micropost: micropost} %>
+                </div>  
+                  <div>
+                    <%= render partial: 'comments/form', locals: { comment: @comment, micropost: micropost } %>
+                  </div>
+              </div>
+           
+　 　　     <%= render "likes/like", micropost: micropost %>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -40,13 +50,13 @@
     </div>
   </div>
 </div>
-  </span>
-    <span class="timestamp">
-      Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-      <% if current_user?(micropost.user) %>
-        <%= link_to "delete", micropost, method: :delete,
-                                         data: { confirm: "You sure?" } %>
-      <% end %>  
-    </span>
-    <%= render "likes/like", micropost: micropost %>
+  
+<span class="timestamp">
+  Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+  <% if current_user?(micropost.user) %>
+    <%= link_to "delete", micropost, method: :delete,
+                                     data: { confirm: "You sure?" } %>
+  <% end %>  
+</span>
+<%= render "likes/like", micropost: micropost %>
 </li>

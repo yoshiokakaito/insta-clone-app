@@ -1,0 +1,1 @@
+$("#micropost-<%= @comment.micropost.id %> .comments_area").html("<%=j(render 'index', {comments: @comment.micropost.comments} ) %>");
