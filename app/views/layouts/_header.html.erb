@@ -6,7 +6,9 @@
         <li>
           <div class ="mt-15">
            <%= form_tag(users_path, :method => 'get' ) do %>
+           <% if logged_in? %>
             <%= text_field_tag :search, '', placeholder: "ユーザー検索" %>
+           <% end %>
            <% end %>
           </div>
         </li>
@@ -27,8 +29,6 @@
               </li>
             </ul>
           </li>
-        <% else %>
-          <li><%= link_to "Log in", login_path %></li>
         <% end %>
         
       </ul>
