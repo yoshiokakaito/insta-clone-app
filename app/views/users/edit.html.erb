@@ -8,5 +8,9 @@
       <%= gravatar_for @user %>
       <a href="http://gravatar.com/emails" target="_blank">Change</a>
     </div>
+    <div>
+      <%= link_to "アカウントの削除", @user, method: :delete, data: { confirm: "You sure?" } %>
+
+    </div>
   </div>
 </div>
