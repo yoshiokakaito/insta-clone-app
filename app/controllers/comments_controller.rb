@@ -5,10 +5,11 @@ class CommentsController < ApplicationController
     @comment = @micropost.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      @micropost.create_notification_comment!(current_user, @comment.id)
       respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js
-    end
+        format.html { redirect_to root_path }
+        format.js
+      end
     end
   
   end

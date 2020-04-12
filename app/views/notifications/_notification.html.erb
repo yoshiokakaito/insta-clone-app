@@ -1,0 +1,11 @@
+<% visitor = notification.visitor %>
+<% post = notification.micropost %>
+
+<div class="notification-back">
+  <%== notification_form(notification) %>
+  <span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
+  <br>
+  <% if !@comment.nil? %>
+    <p class="notification-font"><%= @comment %></p>
+  <% end %>
+</div>

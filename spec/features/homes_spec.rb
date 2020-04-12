@@ -6,7 +6,7 @@ RSpec.feature "Homes", type: :feature do
   end 
   
   scenario "homeページへ遷移できるか" do
-    click_link "Home"
+    click_link "instagram"
     expect(page).to have_content("instagram")
   end
   

@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 /* mixins, variables, etc. */
 
@@ -346,4 +348,24 @@ h12{
 
 .imag-home{
   margin-bottom: 15px;
+}
+
+// 通知
+.notification-back{
+  background-color: #fafafa;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: dashed 1px ;
+}
+
+.notification-font{
+  color: gray;
+}
+
+// fontawesome
+.fa{
+  color: white;
+  &:hover {
+    color: gray;
+  }
 }
