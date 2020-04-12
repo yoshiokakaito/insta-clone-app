@@ -30,11 +30,17 @@ gem 'faker'
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
 
-gem "refile", github: 'refile/refile', require: "refile/rails"
-gem "refile-mini_magick", github: 'refile/refile-mini_magick'
+gem "refile", require: "refile/rails", github: 'refile/refile', ref: 'd7a42dcd7c'
+gem "refile-mini_magick"
+gem "refile-s3"
+# Refileのために以下が必要っぽい
+gem "sinatra", github: "sinatra/sinatra", tag: "v2.0.0.beta2"
 
 gem 'counter_culture', '~> 1.8'
 gem 'font-awesome-sass', '~> 5.4.1'
+
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
