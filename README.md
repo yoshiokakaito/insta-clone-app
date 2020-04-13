@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+・自分が苦労した点
+　一通りプログラムを書き終わった後にrspecを学んで書いてみたが理解力が足らず基礎の基礎の部分しか書けなかった。
+　gitやherokuに関してなどrails以外のところの理解が圧倒的に足りていなかった為、デプロイなどでつまづいた。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・学んだ点
+　何度もエラーを起こしたことによって、デバッグの方法を学んで、原因をつけつめ自己解決する力は少しだけついた。
+　
+・自慢したい・相談したい点
+　本物のinstagramを見ながらつくったので、モーダル表示や、ヘッダー、プロフィール画面など少しは似せられたと思う。
+　everyday railsでrspecについて読みましたが、他にもなにかおすすめの本やサイトなどありましたら、教えていただけますと幸いです。
