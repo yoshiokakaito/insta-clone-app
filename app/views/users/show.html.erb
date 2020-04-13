@@ -1,0 +1,62 @@
+<% provide(:title, @user.name) %>
+
+<div class="container mt-50 mb-50">
+  <div class ="row">
+    <div class="col-md-4">
+    　<%= gravatar_for (@user)  %>
+    </div>
+    <div class="col-md-8">
+      <div>
+        <h11>
+          <%= @user.user_name %>
+        </h11>
+        <% if current_user?(@user) %>
+       　<%= link_to "プロフィールを編集", edit_user_path(current_user), class: "btn btn-default mb-20" %>
+        <% end %>
+      </div>
+      <div class="row mb-20">
+        <div class="col-md-2">
+          <% if @user.microposts.any? %>
+            <h12>投稿 <%= @user.microposts.count %> 件</h12>
+          <% end %>
+        </div>
+        <div class="col-md-4">
+          <%= render 'shared/stats' %>
+        </div>
+      </div>
+      <div>
+        <h12><%= @user.name %></h12>
+      </div>
+      <div>
+        <h13><%= @user.introduction %></h13>        
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'follow_form' if logged_in?  %>
+
+<div class="container">
+  <div class="row">
+    <% @microposts.each do |micropost| %>
+      <div class="col-md-4 padding">
+          <div id="micropost-<%= micropost.id %>" data-micropost-id="<%= micropost.id %>">
+           <%= render partial: 'shared/modal', locals: { comment: @comment, micropost: micropost } %>
+            <div>
+              <span class="timestamp">
+                Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+                <% if current_user?(micropost.user) %>
+                  <%= link_to "delete", micropost, method: :delete,
+                                                   data: { confirm: "You sure?" } %>
+                <% end %>  
+              </span>
+              <%= render "likes/like", micropost: micropost %>
+            </div>
+          </div>
+      </div>
+    <% end %>  
+  </div>
+</div>
+
+
+<%= will_paginate @microposts %>

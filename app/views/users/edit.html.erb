@@ -1,0 +1,16 @@
+<% provide(:title, 'Edit user') %>
+<% provide(:button_text, '変更') %>
+<h1>編集</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'form' %>
+    <div class="gravatar_edit">
+      <%= gravatar_for @user %>
+      <a href="http://gravatar.com/emails" target="_blank">Change</a>
+    </div>
+    <div>
+      <%= link_to "アカウントの削除", @user, method: :delete, data: { confirm: "You sure?" } %>
+
+    </div>
+  </div>
+</div>

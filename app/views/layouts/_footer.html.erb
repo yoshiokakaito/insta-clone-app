@@ -1,0 +1,9 @@
+<footer class="footer">
+  <nav>
+    <ul>
+     <% if logged_in? %>
+      <li><%= link_to "新規投稿",  microposts_path %></li>
+     <% end %>
+    </ul>
+  </nav>
+</footer>
